@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.LBPushupCounter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/darkGray_222</item>
+        <item name="colorPrimaryVariant">@color/darkGray_333</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/darkGray_333</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColorPrimary">@color/ggyulMain</item>
+        <item name="android:textColorSecondary">@color/ggyulDark</item>
+        <item name="android:textColorTertiary">@color/ggyulDarkOpacity60</item>
+
+    </style>
+</resources>

@@ -21,7 +21,11 @@
         android:label="PushUpFragment" >
         <action
             android:id="@+id/action_pushUpFragment_to_historyFragment"
-            app:destination="@id/historyFragment" />
+            app:destination="@id/historyFragment"
+            app:popUpTo="@id/mainFragment" />
+        <action
+            android:id="@+id/action_pushUpFragment_to_adFragment"
+            app:destination="@id/adFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -34,5 +38,18 @@
         <action
             android:id="@+id/action_mainFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_adFragment"
+            app:destination="@id/adFragment"
+            app:popUpTo="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adFragment"
+        android:name="com.leebaeng.lbpushupcounter.presenter.AdsFragment"
+        android:label="AdFragment" >
+        <action
+            android:id="@+id/action_adFragment_to_historyFragment"
+            app:destination="@id/historyFragment"
+            app:popUpTo="@id/mainFragment" />
     </fragment>
 </navigation>

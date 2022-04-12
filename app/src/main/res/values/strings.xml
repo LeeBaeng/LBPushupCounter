@@ -6,6 +6,14 @@
     <string name="info_text_readyComplete">준비가 완료 되었습니다.\n푸쉬업을 시작해 주세요!\n(얼굴이 카메라 중앙에서 벗어나지 않게 주의해주세요)</string>
     <string name="info_text_invalidCount">비정상적인 횟수가 감지 되었습니다.\n더 이상 카운팅 되지 않습니다.</string>
 
+    <string name="loading_failed">로딩 실패</string>
+    <string name="loading">로딩 중 입니다.</string>
+
+    <string name="ad_alert_title">기록 저장 실패</string>
+    <string name="ad_alert_message">광고 영상이 재생되지 않아 기록을 저장할 수 없습니다. 정말로 건너 뛰시겠습니까?</string>
+    <string name="ad_alert_btn_continue">저장없이 계속</string>
+    <string name="ad_alert_btn_retry">다시 시청</string>
+
     <string name="history_view_mode_1year">최근 1년 보기</string>
     <string name="history_view_mode_30days">최근 30일 보기</string>
     <string name="history_view_btn_goHome">메인 화면</string>

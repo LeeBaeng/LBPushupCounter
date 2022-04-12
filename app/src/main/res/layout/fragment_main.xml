@@ -15,46 +15,62 @@
         tools:context=".presenter.MainFragment">
 
         <LinearLayout
-            android:id="@+id/btnStartExercise"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:padding="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/adView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:onClick="@{fragment::onClick}"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical"
             >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/btnStartExercise"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="운동 시작"
-                android:textColor="@color/white" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnShowHistory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@color/black"
-            android:padding="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnStartExercise"
-            android:onClick="@{fragment::onClick}"
-            >
+                android:padding="20dp"
+                android:background="@drawable/btn_bg"
+                android:onClick="@{fragment::onClick}"
+                android:gravity="center"
+                />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/btnShowHistory"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="기록 보기"
-                android:textColor="@color/white" />
+                android:padding="20dp"
+                android:background="@drawable/btn_bg"
+                android:onClick="@{fragment::onClick}"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/btnAppInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="정보 보기"
+                android:padding="20dp"
+                android:background="@drawable/btn_bg"
+                android:onClick="@{fragment::onClick}"
+                android:gravity="center"
+                />
 
         </LinearLayout>
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            ads:layout_constraintBottom_toBottomOf="parent"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

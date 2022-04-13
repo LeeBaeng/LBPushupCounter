@@ -8,7 +8,6 @@ import com.google.mlkit.vision.face.Face
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
 import com.leebaeng.lbpushupcounter.presenter.FaceAnalyzeListener
-import com.leebaeng.util.log.logW
 
 class FaceAnalyzer(val listener:FaceAnalyzeListener): ImageAnalysis.Analyzer {
     private val realTimeOpts = FaceDetectorOptions.Builder()

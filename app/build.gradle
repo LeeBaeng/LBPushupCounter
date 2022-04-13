@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -17,9 +18,31 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            buildConfigField 'int', 'LOG_LEVEL', '0'
+            buildConfigField 'boolean', 'DEBUG_TIME_CHECK', 'true'
+        }
+
+        debug_Pro{
+            applicationIdSuffix ".pro"
+            debuggable true
+            buildConfigField 'int', 'LOG_LEVEL', '0'
+            buildConfigField 'boolean', 'DEBUG_TIME_CHECK', 'true'
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'int', 'LOG_LEVEL', '4'
+            buildConfigField 'boolean', 'DEBUG_TIME_CHECK', 'false'
+        }
+        release_Pro {
+            applicationIdSuffix ".pro"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'int', 'LOG_LEVEL', '4'
+            buildConfigField 'boolean', 'DEBUG_TIME_CHECK', 'false'
         }
     }
     compileOptions {
@@ -76,6 +99,13 @@ dependencies {
 
     // MPAndroidChart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // Room
+    implementation 'androidx.room:room-runtime:2.4.2'
+    kapt 'androidx.room:room-compiler:2.4.2'
+
+    // Gson
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     // Google Ads
     implementation 'com.google.android.gms:play-services-ads:20.6.0'

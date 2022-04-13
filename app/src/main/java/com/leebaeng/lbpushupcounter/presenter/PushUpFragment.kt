@@ -18,8 +18,8 @@ import androidx.core.view.isVisible
 import com.leebaeng.lbpushupcounter.FaceAnalyzer
 import com.leebaeng.lbpushupcounter.R
 import com.leebaeng.lbpushupcounter.databinding.FragmentPushupBinding
-import com.leebaeng.lbpushupcounter.util.ScreenUtil.windowHeight
-import com.leebaeng.lbpushupcounter.util.ScreenUtil.windowWidth
+import com.leebaeng.lbpushupcounter.util.windowHeight
+import com.leebaeng.lbpushupcounter.util.windowWidth
 import java.util.*
 import kotlin.concurrent.timerTask
 

@@ -13,8 +13,6 @@ import com.leebaeng.lbpushupcounter.R
 import com.leebaeng.lbpushupcounter.data.chart.DateXAxisValueFormatter
 import com.leebaeng.lbpushupcounter.databinding.FragmentHistoryBinding
 import com.leebaeng.lbpushupcounter.presenter.view.GraphMarkerView
-import com.leebaeng.util.log.logW
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.properties.Delegates
 

@@ -1,7 +1,6 @@
 package com.leebaeng.lbpushupcounter.data.chart
 
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import com.leebaeng.util.log.logW
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*

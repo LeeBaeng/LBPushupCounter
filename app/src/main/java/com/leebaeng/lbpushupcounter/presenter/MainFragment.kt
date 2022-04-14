@@ -9,6 +9,7 @@ import com.leebaeng.lbpushupcounter.MainActivity
 import com.leebaeng.lbpushupcounter.R
 import com.leebaeng.lbpushupcounter.databinding.DialogCreateProfileBinding
 import com.leebaeng.lbpushupcounter.databinding.FragmentMainBinding
+import com.leebaeng.lbpushupcounter.presenter.dialog.CreateProfileDialog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,33 +23,17 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         binding = FragmentMainBinding.bind(view)
         binding.fragment = this
 
-        requireActivity().let{
-            CoroutineScope(Dispatchers.IO).launch {
-                val user = (it as MainActivity).db.userDao().getUser()
-                if(user == null){
-                    // TODO : open Create Profile Dialog
-                    withContext(Dispatchers.Main){
-
-                        val bindingDialog = DialogCreateProfileBinding.inflate(layoutInflater)
-                        val dialog = AlertDialog.Builder(requireContext())
-                            .setView(bindingDialog.root)
-                            .create()
-
-                        bindingDialog.btnOK.setOnClickListener {
-                            dialog.dismiss()
-                        }
-
-                        dialog.show()
-                    }
-                }
+        view.findViewById<AdView>(R.id.adView).loadAd(AdRequest.Builder().build())
+        CoroutineScope(Dispatchers.IO).launch {
+            (requireActivity() as MainActivity).db.let{
+                if(it.userDao().getUser() == null)
+                    launch(Dispatchers.Main) { CreateProfileDialog(requireContext(), it).show() }
             }
         }
-
-        view.findViewById<AdView>(R.id.adView).loadAd(AdRequest.Builder().build())
     }
 
     fun onClick(view: View) {
-        when(view) {
+        when (view) {
             binding.btnStartExercise -> navController.navigate(R.id.action_mainFragment_to_pushUpFragment)
             binding.btnShowHistory -> navController.navigate(R.id.action_mainFragment_to_historyFragment)
             binding.btnAppInfo -> navController.navigate(R.id.action_mainFragment_to_adFragment)

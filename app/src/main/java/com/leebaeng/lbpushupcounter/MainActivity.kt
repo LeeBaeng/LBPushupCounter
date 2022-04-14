@@ -4,15 +4,17 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.MobileAds
-import com.leebaeng.lbpushupcounter.data.db.DataBase
-import com.leebaeng.lbpushupcounter.data.db.getDatabase
+import com.leebaeng.lbpushupcounter.data.db.DBAdapter
 import com.leebaeng.util.log.LLog
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    lateinit var db : DataBase
+    @Inject lateinit var dbAdapter: DBAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        db = getDatabase(this)
         LLog.init(this)
         setContentView(R.layout.activity_main)
 

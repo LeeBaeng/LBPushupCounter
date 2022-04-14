@@ -11,22 +11,26 @@ import com.leebaeng.lbpushupcounter.data.dao.UserDao
 import com.leebaeng.lbpushupcounter.data.model.entity.History
 import com.leebaeng.lbpushupcounter.data.model.entity.Plan
 import com.leebaeng.lbpushupcounter.data.model.entity.User
+import javax.inject.Inject
 
-@Database(entities = [User::class, History::class, Plan::class], version = 1)
-@TypeConverters(TypeConverter::class)
-abstract class DataBase : RoomDatabase() {
-    abstract fun historyDao(): HistoryDao
-    abstract fun userDao(): UserDao
-    abstract fun planDao(): PlanDao
-}
+class DBAdapter @Inject constructor() {
+    lateinit var db: DataBase
+    @Database(entities = [User::class, History::class, Plan::class], version = 1)
+    @TypeConverters(TypeConverter::class)
+    abstract class DataBase : RoomDatabase() {
+        abstract fun historyDao(): HistoryDao
+        abstract fun userDao(): UserDao
+        abstract fun planDao(): PlanDao
+    }
 
-fun getDatabase(context: Context) : DataBase{
+    fun getDatabase(context: Context) : DataBase{
 //    val migration1to2 = object : Migration(1,2){
 //        override fun migrate(database: SupportSQLiteDatabase) {
 //        }
 //    }
 
-    return Room.databaseBuilder(context, DataBase::class.java, "LBPushUpCoachDB")
+        return Room.databaseBuilder(context, DataBase::class.java, "LBPushUpCoachDB")
 //        .addMigrations(migration1to2)
-        .build()
+            .build()
+    }
 }

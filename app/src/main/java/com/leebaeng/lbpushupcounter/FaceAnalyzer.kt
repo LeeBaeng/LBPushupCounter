@@ -40,12 +40,8 @@ class FaceAnalyzer(val listener:FaceAnalyzeListener): ImageAnalysis.Analyzer {
                     listener.onDetect(mainFace)
                     imageProxy.close()
                 }
-                .addOnFailureListener {
-                    imageProxy.close()
-                }
-                .addOnCompleteListener {
-                    imageProxy.close()
-                }
+                .addOnFailureListener { imageProxy.close() }
+                .addOnCompleteListener { imageProxy.close() }
         }
     }
 
